@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Games - Spruce</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/cloud-styles.css">
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/simple-peer@9.11.1/simplepeer.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="games-header">
+      <h2>Cloud Games</h2>
+    </div>
+    <p class="muted">Play games directly in your browser with cloud streaming.</p>
+    <div id="cloud-games" class="cloud-games-container"></div>
+    <div id="game-stream-container" class="game-stream-container" tabindex="-1">
+      <div id="game-controls" class="game-controls">
+        <div id="game-timer" class="game-timer" style="display: none;">20:00</div>
+        <button id="fullscreen-btn" class="game-control-btn" title="Fullscreen">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+          </svg>
+        </button>
+        <button id="newtab-btn" class="game-control-btn" title="Open in new tab">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </button>
+        <button id="exit-btn" class="game-control-btn" title="Exit">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div id="game-loading-screen" class="game-loading-screen">
+        <div class="loading-content">
+          <div class="loading-spinner"></div>
+          <div id="loading-text" class="loading-text">Creating Account...</div>
+        </div>
+      </div>
+      <video id="game-canvas" class="game-canvas" tabindex="0" autoplay playsinline muted disablepictureinpicture disableremoteplayback></video>
+    </div>
+    <p class="muted" style="text-align:center; font-size: 12px; margin-top: 12px;">
+      This website uses Stratus API to provide some of its services.
+    </p>
+  </div>
+  </div>
+
+  <script src="gamelayout.js"></script>
+  <script src="cloud-games.js"></script>
+  <script src="assets/js/game-stream-client.js"></script>
+
+</body>
+</html>
